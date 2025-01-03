@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://hospital.opd/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://hospital.opd/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://hospital.opd/">
+      <s:element name="AddPatient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateOfBirth" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emergencyContact" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bloodGroup" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPatientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddPatientResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePatient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="patientId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateOfBirth" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emergencyContact" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bloodGroup" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePatientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdatePatientResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllPatients">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllPatientsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllPatientsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatientByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="patientId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatientByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPatientByIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchPatients">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchTerm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchPatientsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchPatientsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddPatientSoapIn">
+    <wsdl:part name="parameters" element="tns:AddPatient" />
+  </wsdl:message>
+  <wsdl:message name="AddPatientSoapOut">
+    <wsdl:part name="parameters" element="tns:AddPatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePatientSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePatient" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePatientSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPatientsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllPatients" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPatientsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllPatientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPatientByID" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPatientByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchPatientsSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchPatients" />
+  </wsdl:message>
+  <wsdl:message name="SearchPatientsSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchPatientsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PatientServiceSoap">
+    <wsdl:operation name="AddPatient">
+      <wsdl:input message="tns:AddPatientSoapIn" />
+      <wsdl:output message="tns:AddPatientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatient">
+      <wsdl:input message="tns:UpdatePatientSoapIn" />
+      <wsdl:output message="tns:UpdatePatientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatients">
+      <wsdl:input message="tns:GetAllPatientsSoapIn" />
+      <wsdl:output message="tns:GetAllPatientsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientByID">
+      <wsdl:input message="tns:GetPatientByIDSoapIn" />
+      <wsdl:output message="tns:GetPatientByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchPatients">
+      <wsdl:input message="tns:SearchPatientsSoapIn" />
+      <wsdl:output message="tns:SearchPatientsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PatientServiceSoap" type="tns:PatientServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddPatient">
+      <soap:operation soapAction="http://hospital.opd/AddPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatient">
+      <soap:operation soapAction="http://hospital.opd/UpdatePatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatients">
+      <soap:operation soapAction="http://hospital.opd/GetAllPatients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientByID">
+      <soap:operation soapAction="http://hospital.opd/GetPatientByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchPatients">
+      <soap:operation soapAction="http://hospital.opd/SearchPatients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PatientServiceSoap12" type="tns:PatientServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddPatient">
+      <soap12:operation soapAction="http://hospital.opd/AddPatient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatient">
+      <soap12:operation soapAction="http://hospital.opd/UpdatePatient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatients">
+      <soap12:operation soapAction="http://hospital.opd/GetAllPatients" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientByID">
+      <soap12:operation soapAction="http://hospital.opd/GetPatientByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchPatients">
+      <soap12:operation soapAction="http://hospital.opd/SearchPatients" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PatientService">
+    <wsdl:port name="PatientServiceSoap" binding="tns:PatientServiceSoap">
+      <soap:address location="http://localhost:64933/PatientService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PatientServiceSoap12" binding="tns:PatientServiceSoap12">
+      <soap12:address location="http://localhost:64933/PatientService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
