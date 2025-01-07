@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using HospitalOPD_SOAP;
+using static System.Data.Entity.Infrastructure.Design.Executor;
 
 
 
@@ -72,4 +73,3 @@ public partial class AddPatient : System.Web.UI.Page
         txtBloodGroup.Text = "";
     }
 }
-
